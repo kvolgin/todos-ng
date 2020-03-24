@@ -1,0 +1,14 @@
+<div class="view">
+  <input class="toggle" type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.done">
+  <label>
+    {{todo.todo}}
+    <div>
+      <small>by {{todo.user}}</small>
+    </div>
+  </label>
+
+  <div class="context-panel">
+    <button class="btn btn-secondary" (click)="editTodo(todo)">edit</button> <button class="btn btn-danger" (click)="removeTodo(todo)">delete</button>
+  </div>
+
+</div>

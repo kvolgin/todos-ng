@@ -1,0 +1,36 @@
+<div class="container-fluid" >
+  <div class="row">
+      <div class="col info-box">
+        <div class="rmj">
+          <ul class="promo">
+            <li>Free</li>
+            <li>Multiuser</li>
+            <li>Cool</li>
+            <li>Sexy</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="rmj">
+          <div class="main-forms">
+            <app-signin *ngIf="!login"></app-signin>
+
+            <app-login *ngIf="login"></app-login>
+
+            <div class="login-block">
+
+              <p *ngIf="!login; else registrationShow">
+                Already have a Todo account? <a class="btn btn-outline-primary" (click)="toggleView()">Login</a>
+              </p>
+              <ng-template #registrationShow>
+                <p>
+                  Back to <a class="btn btn-outline-primary" (click)="toggleView()">Registration</a>
+                </p>
+              </ng-template>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

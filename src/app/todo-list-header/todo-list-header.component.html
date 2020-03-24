@@ -1,0 +1,24 @@
+<header class="header">
+  <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+  <input class="new-todo" placeholder="What needs to be done?" formControlName="todo">
+
+  <div class="input-group mb-3">
+    <select class="form-control" formControlName="user" (change)="changeUser($event)">
+      <option>Choose user from list</option>
+      <option *ngFor="let u of users">{{u.user}}</option>
+    </select>
+    <div class="input-group-append">
+      <label class="input-group-text">
+        <a href="#" (click)="assignToMe()">Assign to me</a>
+      </label>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button class="btn btn-primary">Save</button>
+    <button class="btn btn-default" (click)="reset()" *ngIf="editMode">Reset</button>
+  </div>
+
+  </form>
+<hr>
+</header>

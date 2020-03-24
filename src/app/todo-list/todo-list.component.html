@@ -1,0 +1,35 @@
+<toolbar></toolbar>
+
+<div class="card">
+
+<!--<section class="todoapp">-->
+  <app-todo-list-header
+    (add)="onAddTodo($event)"
+    [users]="users"
+    [todo]="edited_todo"
+  ></app-todo-list-header>
+
+  <section class="main" *ngIf="todos.length > 0">
+    <div class="filter">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-dark" [ngClass]="this.filterState.all" (click)="loadTodos()">All users</button>
+        <button type="button" class="btn btn-secondary" [ngClass]="this.filterState.my_todos" (click)="filterMyTodos()">My todos</button>
+      </div>
+    </div>
+
+    <ul class="todo-list">
+      <li *ngFor="let todo of todos" [class.completed]="todo.done">
+        <app-todo-list-item
+          [todo]="todo"
+          (toggleComplete)="onToggleTodoComplete($event)"
+          (remove)="onRemoveTodo($event)"
+          (edit)="onEditTodo($event)"
+          ></app-todo-list-item>
+      </li>
+    </ul>
+  </section>
+
+  <app-todo-list-footer
+    [todos]="todos"
+  ></app-todo-list-footer>
+</div>
